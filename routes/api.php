@@ -24,3 +24,6 @@ Route::post('login', 'Usercontroller@login');
 Route::group(['middleware' => 'auth:api'],  function () {
     Route::post('details', 'Usercontroller@details');
 });
+
+
+// Route::post('contacts', 'Contacts@create');
