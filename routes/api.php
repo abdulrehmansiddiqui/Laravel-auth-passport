@@ -25,5 +25,9 @@ Route::group(['middleware' => 'auth:api'],  function () {
     Route::post('details', 'Usercontroller@details');
 });
 
-
-// Route::post('contacts', 'Contacts@create');
+Route::get('contactget', 'ContactController@get');
+Route::get('contactspecific/{id}', 'ContactController@specific');
+Route::post('contactcreate', 'ContactController@create');
+Route::put('contactupdate', 'ContactController@update');
+Route::get('contactsearch/{name}', 'ContactController@search');
+Route::get('contactdelete/{id}', 'ContactController@delete');

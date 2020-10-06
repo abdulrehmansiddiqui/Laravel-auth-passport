@@ -27,7 +27,7 @@ class Usercontroller extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-        $success['token'] =  $user->createToken('MyApp')->accessToken;
+        $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
         return response()->json(['success' => $success]);
     }
@@ -35,7 +35,7 @@ class Usercontroller extends Controller
     {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-            $token =  $user->createToken('MyApp')->accessToken;
+            $token = $user->createToken('MyApp')->accessToken;
             return response()->json(['token' => $token, 'user' => $user]);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
